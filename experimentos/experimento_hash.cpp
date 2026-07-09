@@ -1,3 +1,12 @@
+ /**
+ * Ejecuta las 5 estructuras (abierto, cerrado_linear, cerrado_quadratic,
+ * cerrado_double, unordered_map) por las 2 claves (user_id, user_screen_name) por
+ * los tamanos de muestra 10000, 20000, ..., hasta el total de tweets del
+ * dataset. Cada combinacion se repite [repeticiones] veces (20 por defecto)
+ * y se reporta el tiempo promedio, la desviacion estandar y el tamano en
+ * memoria de la estructura.
+ */
+
 #include "ExperimentoRunner.hpp"
 #include "LectorTweets.hpp"
 #include "Medicion.hpp"

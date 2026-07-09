@@ -38,7 +38,9 @@ inline int h2String(const std::string& s, int m) {
     return r == 0 ? 1 : r;
 }
 
-/* Hash con djb2 (base 33, semilla 5381) para user_screen_name */
+/* Hash djb2 (Bernstein) para user_screen_name, el cual procesa el string caracter
+   por caracter acumulando hash = hash*33 + c. La semilla 5381 y la base 33
+   se eligieron por Bernstein por dar buena dispersion */
 inline std::size_t hashString(const std::string& s) {
     std::size_t hash = 5381;
     for (unsigned char c : s) {

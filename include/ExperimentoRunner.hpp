@@ -1,7 +1,11 @@
 #pragma once
 
-/*Expone parsers de argumentos, puntos de escalabilidad y la funcion*/
-
+/* Orquestacion de mediciones sobre las 5 estructuras de tablas hash.
+ * Expone: los enums Estructura y ClaveTipo, los puntos de muestreo
+ * (puntosMedicion) y la funcion ejecutarUnaMedicion, que crea la
+ * estructura correspondiente, inserta la muestra de tweets, y mide
+ * tiempo de creacion y memoria ocupada.
+ */
 #include "HashTablaAbierto.hpp"
 #include "HashTablaCerrado.hpp"
 #include "HashTablaUnorderedMap.hpp"

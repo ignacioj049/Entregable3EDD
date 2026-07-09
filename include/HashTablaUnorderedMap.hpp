@@ -30,7 +30,8 @@ public:
         std::size_t bytes = sizeof(*this) + map_.bucket_count() * sizeof(void *);
         for (const auto &[clave, conteo] : map_)
         {
-            bytes += sizeof(clave) + sizeof(conteo) + 32;
+        /* Overhead por nodo en libstdc++ son de 8 bytes correspondientes al puntero de encadenamiento interno, por eso se suman a la aproximacion */
+            bytes += sizeof(clave) + sizeof(conteo) + 8;
         }
         return bytes;
     }
@@ -58,7 +59,9 @@ public:
         std::size_t bytes = sizeof(*this) + map_.bucket_count() * sizeof(void *);
         for (const auto &[clave, conteo] : map_)
         {
-            bytes += sizeof(conteo) + clave.capacity() + 32;
+    /* el overhead por nodo en libstdc++ son 16 bytes = 8 del puntero de encadenamiento + 8 del
+       valor hash */
+            bytes += sizeof(conteo) + clave.capacity() + 16;
         }
         return bytes;
     }
